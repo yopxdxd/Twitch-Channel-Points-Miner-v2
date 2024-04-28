@@ -46,37 +46,19 @@ twitch_miner = TwitchChannelPointsMiner(
             BET_wiN=Fore.MAGENTA                # Color allowed are: [BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET].
         ),
         telegram=Telegram(                                                          # You can omit or set to None if you don't want to receive updates on Telegram
-            chat_id=123456789,                                                      # Chat ID to send messages @getmyid_bot
-            token="123456789:shfuihreuifheuifhiu34578347",                          # Telegram API token @BotFather
+            chat_id=,                                                      # Chat ID to send messages @getmyid_bot
+            token="",                          # Telegram API token @BotFather
             events=[Events.STREAMER_ONLINE, Events.STREAMER_OFFLINE,
                     Events.BET_LOSE, Events.CHAT_MENTION],                          # Only these events will be sent to the chat
             disable_notification=True,                                              # Revoke the notification (sound/vibration)
         ),
         discord=Discord(
-            webhook_api="https://discord.com/api/webhooks/0123456789/0a1B2c3D4e5F6g7H8i9J",  # Discord Webhook URL
-            events=[Events.STREAMER_ONLINE, Events.STREAMER_OFFLINE,
-                    Events.BET_LOSE, Events.CHAT_MENTION],                                  # Only these events will be sent to the chat
+             webhook_api="https://discord.com/api/webhooks/1186392588081709159/59rVrJizuXctd-g3Q-mfpVszH7D7BDrG9IoKnf4Va949thQLfKtl8pRLwdam1HwgKBQv",  # Discord Webhook URL
+            events=[Events.STREAMER_ONLINE, Events.STREAMER_OFFLINE, Events.BET_LOSE, Events.BET_GENERAL, Events.BET_FAILED, Events.BET_FILTERS,
+                    Events.BET_REFUND, Events.BET_START, Events.BET_WIN, Events.BONUS_CLAIM, Events.CHAT_MENTION, Events.GAIN_FOR_RAID, 
+                    Events.DROP_CLAIM, Events.DROP_STATUS, Events.GAIN_FOR_CLAIM, Events.GAIN_FOR_WATCH, Events.GAIN_FOR_WATCH_STREAK, 
+                    Events.JOIN_RAID, Events.MOMENT_CLAIM],                                                                                            # Only these events will be sent to the chat
         ),
-        webhook=Webhook(
-            endpoint="https://example.com/webhook",                                                                    # Webhook URL
-            method="GET",                                                                   # GET or POST
-            events=[Events.STREAMER_ONLINE, Events.STREAMER_OFFLINE,
-                    Events.BET_LOSE, Events.CHAT_MENTION],                                  # Only these events will be sent to the endpoint
-        ),
-        matrix=Matrix(
-            username="twitch_miner",                                                   # Matrix username (without homeserver)
-            password="...",                                                            # Matrix password
-            homeserver="matrix.org",                                                   # Matrix homeserver
-            room_id="...",                                                             # Room ID
-            events=[Events.STREAMER_ONLINE, Events.STREAMER_OFFLINE, Events.BET_LOSE], # Only these events will be sent
-        ),
-        pushover=Pushover(
-            userkey="YOUR-ACCOUNT-TOKEN",                                             # Login to https://pushover.net/, the user token is on the main page
-            token="YOUR-APPLICATION-TOKEN",                                           # Create a application on the website, and use the token shown in your application
-            priority=0,                                                               # Read more about priority here: https://pushover.net/api#priority
-            sound="pushover",                                                         # A list of sounds can be found here: https://pushover.net/api#sounds
-            events=[Events.CHAT_MENTION, Events.DROP_CLAIM],                          # Only these events will be sent
-        )
     ),
     streamer_settings=StreamerSettings(
         make_predictions=True,                  # If you want to Bet / Make prediction
